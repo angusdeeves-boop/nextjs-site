@@ -1,0 +1,339 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #0a0a0a; /* Retained existing value */
+  --foreground: #f5f5f5; /* Retained existing value */
+  --primary-blue: #0066ff; /* Custom variable, retained */
+  --dark-bg: #0a0a0a; /* Custom variable, retained */
+  --light-text: #f5f5f5; /* Custom variable, retained */
+  --gray-text: #a0a0a0; /* Custom variable, retained */
+  --accent-gradient: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%); /* Custom variable, retained */
+  --card: oklch(0.145 0 0); /* Retained existing value */
+  --card-foreground: oklch(0.985 0 0); /* Retained existing value */
+  --popover: oklch(0.145 0 0); /* Retained existing value */
+  --popover-foreground: oklch(0.985 0 0); /* Retained existing value */
+  --primary: oklch(0.985 0 0); /* Retained existing value */
+  --primary-foreground: oklch(0.205 0 0); /* Retained existing value */
+  --secondary: oklch(0.269 0 0); /* Retained existing value */
+  --secondary-foreground: oklch(0.985 0 0); /* Retained existing value */
+  --muted: oklch(0.269 0 0); /* Retained existing value */
+  --muted-foreground: oklch(0.708 0 0); /* Retained existing value */
+  --accent: oklch(0.269 0 0); /* Retained existing value */
+  --accent-foreground: oklch(0.985 0 0); /* Retained existing value */
+  --destructive: oklch(0.396 0.141 25.723); /* Retained existing value */
+  --destructive-foreground: oklch(0.637 0.237 25.331); /* Retained existing value */
+  --border: oklch(0.269 0 0); /* Retained existing value */
+  --input: oklch(0.269 0 0); /* Retained existing value */
+  --ring: oklch(0.439 0 0); /* Retained existing value */
+  --radius: 0.625rem; /* Retained existing value */
+  --chart-1: oklch(0.646 0.222 41.116); /* Added from diff */
+  --chart-2: oklch(0.6 0.118 184.704); /* Added from diff */
+  --chart-3: oklch(0.398 0.07 227.392); /* Added from diff */
+  --chart-4: oklch(0.828 0.189 84.429); /* Added from diff */
+  --chart-5: oklch(0.769 0.188 70.08); /* Added from diff */
+  --sidebar: oklch(0.985 0 0); /* Added from diff */
+  --sidebar-foreground: oklch(0.145 0 0); /* Added from diff */
+  --sidebar-primary: oklch(0.205 0 0); /* Added from diff */
+  --sidebar-primary-foreground: oklch(0.985 0 0); /* Added from diff */
+  --sidebar-accent: oklch(0.97 0 0); /* Added from diff */
+  --sidebar-accent-foreground: oklch(0.205 0 0); /* Added from diff */
+  --sidebar-border: oklch(0.922 0 0); /* Added from diff */
+  --sidebar-ring: oklch(0.708 0 0); /* Added from diff */
+}
+
+/* Added dark theme from diff, ensures existing dark mode variables from :root remain active if they exist */
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', 'Geist Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --font-display: var(--font-orbitron), 'Orbitron', system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-chart-1: var(--chart-1); /* Added from diff */
+  --color-chart-2: var(--chart-2); /* Added from diff */
+  --color-chart-3: var(--chart-3); /* Added from diff */
+  --color-chart-4: var(--chart-4); /* Added from diff */
+  --color-chart-5: var(--chart-5); /* Added from diff */
+  --color-sidebar: var(--sidebar); /* Added from diff */
+  --color-sidebar-foreground: var(--sidebar-foreground); /* Added from diff */
+  --color-sidebar-primary: var(--sidebar-primary); /* Added from diff */
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground); /* Added from diff */
+  --color-sidebar-accent: var(--sidebar-accent); /* Added from diff */
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground); /* Added from diff */
+  --color-sidebar-border: var(--sidebar-border); /* Added from diff */
+  --color-sidebar-ring: var(--sidebar-ring); /* Added from diff */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    margin: 0; /* Retained from existing */
+    padding: 0; /* Retained from existing */
+    box-sizing: border-box; /* Retained from existing */
+  }
+  body {
+    @apply bg-background text-foreground; /* Updated to use variables */
+    font-family: var(--font-sans); /* Retained from existing */
+    line-height: 1.6; /* Retained from existing */
+    @apply overflow-x-hidden; /* Retained from existing */
+  }
+  html {
+    scroll-behavior: smooth; /* Retained from existing */
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatLarge {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20px, -20px) scale(1.05);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badgeGlow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(0, 102, 255, 0.5);
+  }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.1); }
+}
+
+@keyframes pulseRed {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2) translate(20px, -20px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseGreen {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.3) translate(-30px, 30px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+}
+
+@keyframes statPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.4);
+  }
+}
+
+@keyframes titleShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-large {
+  animation: floatLarge 20s ease-in-out infinite;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+.animate-cardFadeIn {
+  animation: cardFadeIn 0.8s ease forwards;
+}
+
+.animate-badgeGlow {
+  animation: badgeGlow 3s ease-in-out infinite;
+}
+
+.animate-arrowBounce {
+  animation: arrowBounce 2s ease-in-out infinite;
+}
+
+.animate-pulse-custom {
+  animation: pulse 10s ease-in-out infinite;
+}
+
+.animate-pulseRed {
+  animation: pulseRed 8s ease-in-out infinite;
+}
+
+.animate-pulseGreen {
+  animation: pulseGreen 10s ease-in-out infinite;
+}
+
+.animate-iconFloat {
+  animation: iconFloat 4s ease-in-out infinite;
+}
+
+.animate-statPulse {
+  animation: statPulse 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 60s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-white-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Spline viewer styles */
+spline-viewer {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
